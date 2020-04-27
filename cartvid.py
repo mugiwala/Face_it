@@ -34,6 +34,8 @@ if com == '':
     com = 7
 else:
     com = int(com)
+    if com > 7:
+        com = 7
 
 
 i = 1
@@ -75,7 +77,7 @@ while cap.isOpened():
     if cv2.waitKey(1) == ord('s'):
         if i <= com:
             cv2.imwrite('anim_'+str(i)+'.jpg', icartoon)
-            if i != 0:
+            if i <= com:
                 if i == 1:
                     anim1 = cv2.imread("anim_1.jpg")
                     border_b = cv2.copyMakeBorder(anim1, bt, bt, bt, bt, cv2.BORDER_CONSTANT, value = c_b)
@@ -112,7 +114,6 @@ while cap.isOpened():
                     border_w = cv2.copyMakeBorder(border_b, wt, wt, wt, wt, cv2.BORDER_CONSTANT, value = c_w)
                     anim7 = border_w
         else:
-            print("yay")
             if k == 0:
                 print("smh")
             if k == 1:
